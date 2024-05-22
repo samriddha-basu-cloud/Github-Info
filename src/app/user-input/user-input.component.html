@@ -1,0 +1,11 @@
+<!-- src/app/user-input/user-input.component.html -->
+<div class="user-input-container">
+  <form (ngSubmit)="search()">
+    <mat-form-field appearance="fill">
+      <mat-label>Enter GitHub Username</mat-label>
+      <input matInput placeholder="GitHub username" [(ngModel)]="username" name="username" required>
+    </mat-form-field>
+    <!-- Add margin or padding between the input and button -->
+    <button mat-raised-button color="primary" type="submit" style="margin-left: 10px;">Search</button>
+  </form>
+</div>

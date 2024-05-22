@@ -1,0 +1,16 @@
+/* src/app/app.component.css */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.profile {
+  margin: 20px 0;
+}
+
+.avatar {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+}

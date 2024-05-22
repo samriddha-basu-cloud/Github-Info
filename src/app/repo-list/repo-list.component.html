@@ -1,0 +1,26 @@
+<!-- src/app/repo-list/repo-list.component.html -->
+<div class="repo-list-container" *ngIf="paginatedRepos.length > 0">
+  <mat-card *ngFor="let repo of paginatedRepos" class="repo-card">
+    <mat-card-title>
+      <a [href]="repo.html_url" target="_blank">{{ repo.name }}</a>
+    </mat-card-title>
+    <mat-card-content>
+      <p>{{ repo.description ? (repo.description | truncate:20) : 'No description' }}</p>
+      <p>Topics: {{ repo.topics.join(', ') || 'None' }}</p> <!-- Display topics -->
+      <p>Website: <a *ngIf="repo.homepage" [href]="repo.homepage" target="_blank">{{ repo.homepage }}</a></p> <!-- Display website if available -->
+    </mat-card-content>
+  </mat-card>
+  <mat-paginator [length]="repositories.length"
+                 [pageSize]="pageSize"
+                 [pageSizeOptions]="[6]"
+                 (page)="handlePageEvent($event)">
+  </mat-paginator>
+</div>
+
+<div class="loading-container" *ngIf="loading">
+  <mat-spinner></mat-spinner>
+</div>
+
+<div *ngIf="errorMessage" class="error-message">
+  {{ errorMessage }}
+</div>
